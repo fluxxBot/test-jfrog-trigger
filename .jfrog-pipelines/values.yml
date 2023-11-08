@@ -1,0 +1,3 @@
+myRepo:
+  gitProvider: int_github
+  path: fluxxBot/jfrog-pipelines-simple-example
