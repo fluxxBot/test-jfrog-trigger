@@ -1,0 +1,24 @@
+valuesFilePath: ./values.yml
+
+resources:
+  - name: repoResource
+    type: GitRepo
+    configuration:
+      buildOn:
+        branchCreate: true
+        commit: true
+      gitProvider: {{ .Values.myRepo.gitProvider }}
+      path: {{ .Values.myRepo.path }}
+
+pipelines:
+  - name: trigger_buildon
+    steps:
+      - name: startbuildOnStep
+        type: Bash
+        configuration:
+          inputResources:
+            - name: resourceRepo
+        execution:
+          onExecute:
+            - echo "Working fine"
+            
